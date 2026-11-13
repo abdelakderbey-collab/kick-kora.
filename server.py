@@ -116,6 +116,6 @@ class Handler(SimpleHTTPRequestHandler):
         print("[Kick Kora] " + (fmt % args))
 
 if __name__ == "__main__":
-    print("Kick Kora Pro (SportAPI) يعمل على http://localhost:%d" % PORT)
-    print("اترك هذه النافذة مفتوحة أثناء استخدام الموقع.")
-    ThreadingHTTPServer(("127.0.0.1", PORT), Handler).serve_forever()
+    PORT = int(os.environ.get("PORT", PORT))
+    print("Kick Kora Pro (SportAPI) يعمل على المنفذ %d" % PORT)
+    ThreadingHTTPServer(("0.0.0.0", PORT), Handler).serve_forever()
